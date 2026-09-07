@@ -12,6 +12,7 @@
     --charcoal: #2A2823;
     --dusty-sky: #8FA39B;
     --rule: #D8CFB8;
+    --font: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   * { box-sizing: border-box; }
@@ -20,7 +21,7 @@
     margin: 0;
     background: var(--cloud);
     color: var(--charcoal);
-    font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+    font-family: var(--font);
     line-height: 1.6;
   }
 
@@ -35,16 +36,17 @@
   }
 
   .ranch-name {
-    font-family: 'Rockwell', 'Roboto Slab', Georgia, serif;
+    font-family: var(--font);
     font-weight: 700;
     font-size: clamp(2.2rem, 6vw, 3.4rem);
     margin: 0;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     color: var(--sage);
   }
 
   .tagline {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: var(--font);
+    font-weight: 400;
     font-size: 1.05rem;
     color: var(--charcoal);
     margin: 10px 0 0;
@@ -53,17 +55,15 @@
 
   .hero-photo {
     margin-top: 36px;
-    border: 1px dashed #B9AD8F;
-    background: #EFE9D8;
-    height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #8A8062;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    font-size: 0.9rem;
-    padding: 20px;
+    overflow: hidden;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
   }
 
   section {
@@ -72,10 +72,12 @@
   }
 
   h2 {
-    font-family: 'Rockwell', 'Roboto Slab', Georgia, serif;
-    font-size: 1.5rem;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 1.4rem;
     margin: 0 0 28px;
     color: var(--sage);
+    letter-spacing: -0.01em;
   }
 
   .activity {
@@ -94,13 +96,15 @@
   }
 
   .activity-name {
-    font-family: 'Rockwell', 'Roboto Slab', Georgia, serif;
-    font-size: 1.25rem;
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 1.2rem;
     margin: 0;
+    letter-spacing: -0.01em;
   }
 
   .activity-price {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: var(--font);
     font-size: 1rem;
     color: var(--sage);
     font-weight: 600;
@@ -108,14 +112,14 @@
   }
 
   .activity-meta {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: var(--font);
     font-size: 0.9rem;
     color: #6B6656;
     margin: 4px 0 12px;
   }
 
   .activity-desc {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: var(--font);
     font-size: 0.98rem;
     margin: 0 0 16px;
     max-width: 56ch;
@@ -123,7 +127,7 @@
 
   .book-btn {
     display: inline-block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: var(--font);
     font-size: 0.92rem;
     font-weight: 600;
     color: var(--cloud);
@@ -147,7 +151,7 @@
   }
 
   .note {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: var(--font);
     font-size: 0.82rem;
     color: #8A8062;
     margin-top: 10px;
@@ -155,6 +159,18 @@
 
   .photo-slot {
     margin-top: 16px;
+    overflow: hidden;
+  }
+
+  .photo-slot img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .photo-slot.placeholder {
     border: 1px dashed #B9AD8F;
     background: #EFE9D8;
     height: 140px;
@@ -163,7 +179,6 @@
     justify-content: center;
     text-align: center;
     color: #8A8062;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     font-size: 0.85rem;
     padding: 16px;
   }
@@ -171,7 +186,7 @@
   footer {
     padding: 40px 0 64px;
     border-top: 1px solid var(--rule);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-family: var(--font);
     font-size: 0.92rem;
     color: #6B6656;
   }
@@ -186,6 +201,7 @@
   @media (max-width: 480px) {
     header { padding: 44px 0 28px; }
     section { padding: 32px 0; }
+    .hero-photo img { height: 220px; }
   }
 </style>
 </head>
@@ -194,7 +210,9 @@
     <header>
       <h1 class="ranch-name">Bend Alpaca Ranch</h1>
       <p class="tagline">Come spend time with the herd, out in the high desert just outside Bend, Oregon.</p>
-      <div class="hero-photo">Add a ranch photo here (e.g. hero.jpg) — recommend a wide shot, roughly 1400×700px</div>
+      <div class="hero-photo">
+        <img src="hero.jpg" alt="Sitting in the pasture with the alpacas at Bend Alpaca Ranch">
+      </div>
     </header>
 
     <section>
@@ -208,7 +226,9 @@
         <p class="activity-meta">Tuesday evenings, 6:00 PM</p>
         <p class="activity-desc">A slow, grounding tai chi session held out in the pasture with the alpacas moving quietly around you.</p>
         <a class="book-btn" href="https://owlnest.org/taichi" target="_blank" rel="noopener">Book Now</a>
-        <div class="photo-slot">Add a Tai Chi photo here (e.g. tai-chi.jpg)</div>
+        <div class="photo-slot">
+          <img src="tai-chi.jpg" alt="Practicing tai chi in the pasture with the alpaca herd">
+        </div>
       </div>
 
       <div class="activity">
@@ -219,8 +239,8 @@
         <p class="activity-meta">Dates &amp; times to be announced</p>
         <p class="activity-desc">A mat pilates class set among the alpacas. Schedule is still being finalized — email us and we'll let you know as soon as it's set.</p>
         <a class="book-btn secondary" href="mailto:reagan@wileyroseconsulting.com?subject=Alpaca%20Pilates%20-%20Reserve%20My%20Spot">Reserve Your Spot</a>
-        <p class="note">Once dates are set, swap this button for a real booking link — see the note below.</p>
-        <div class="photo-slot">Add a Pilates photo here (e.g. pilates.jpg)</div>
+        <p class="note">Once dates are set, swap this button for a real booking link.</p>
+        <div class="photo-slot placeholder">Add a Pilates photo here (e.g. pilates.jpg)</div>
       </div>
     </section>
 
