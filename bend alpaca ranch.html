@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bend Alpaca Ranch</title>
+<style>
+  :root {
+    --sage: #4B5B3F;
+    --sand: #DDD0AE;
+    --cloud: #F7F4EC;
+    --charcoal: #2A2823;
+    --dusty-sky: #8FA39B;
+    --rule: #D8CFB8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--cloud);
+    color: var(--charcoal);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  header {
+    padding: 64px 0 40px;
+  }
+
+  .ranch-name {
+    font-family: 'Rockwell', 'Roboto Slab', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: var(--sage);
+  }
+
+  .tagline {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    margin: 10px 0 0;
+    max-width: 46ch;
+  }
+
+  .hero-photo {
+    margin-top: 36px;
+    border: 1px dashed #B9AD8F;
+    background: #EFE9D8;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #8A8062;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    padding: 20px;
+  }
+
+  section {
+    padding: 40px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  h2 {
+    font-family: 'Rockwell', 'Roboto Slab', Georgia, serif;
+    font-size: 1.5rem;
+    margin: 0 0 28px;
+    color: var(--sage);
+  }
+
+  .activity {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .activity:last-child { border-bottom: none; }
+
+  .activity-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+
+  .activity-name {
+    font-family: 'Rockwell', 'Roboto Slab', Georgia, serif;
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .activity-price {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    color: var(--sage);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .activity-meta {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    color: #6B6656;
+    margin: 4px 0 12px;
+  }
+
+  .activity-desc {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.98rem;
+    margin: 0 0 16px;
+    max-width: 56ch;
+  }
+
+  .book-btn {
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--cloud);
+    background: var(--sage);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+
+  .book-btn:hover { background: #3C4A33; }
+
+  .book-btn.secondary {
+    background: transparent;
+    color: var(--sage);
+    border: 1px solid var(--sage);
+  }
+
+  .book-btn.secondary:hover {
+    background: var(--sage);
+    color: var(--cloud);
+  }
+
+  .note {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    color: #8A8062;
+    margin-top: 10px;
+  }
+
+  .photo-slot {
+    margin-top: 16px;
+    border: 1px dashed #B9AD8F;
+    background: #EFE9D8;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #8A8062;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    padding: 16px;
+  }
+
+  footer {
+    padding: 40px 0 64px;
+    border-top: 1px solid var(--rule);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.92rem;
+    color: #6B6656;
+  }
+
+  footer a {
+    color: var(--sage);
+    text-decoration: none;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    header { padding: 44px 0 28px; }
+    section { padding: 32px 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1 class="ranch-name">Bend Alpaca Ranch</h1>
+      <p class="tagline">Come spend time with the herd, out in the high desert just outside Bend, Oregon.</p>
+      <div class="hero-photo">Add a ranch photo here (e.g. hero.jpg) — recommend a wide shot, roughly 1400×700px</div>
+    </header>
+
+    <section>
+      <h2>Upcoming Activities</h2>
+
+      <div class="activity">
+        <div class="activity-top">
+          <h3 class="activity-name">Alpaca Tai Chi</h3>
+          <span class="activity-price">$45</span>
+        </div>
+        <p class="activity-meta">Tuesday evenings, 6:00 PM</p>
+        <p class="activity-desc">A slow, grounding tai chi session held out in the pasture with the alpacas moving quietly around you.</p>
+        <a class="book-btn" href="https://owlnest.org/taichi" target="_blank" rel="noopener">Book Now</a>
+        <div class="photo-slot">Add a Tai Chi photo here (e.g. tai-chi.jpg)</div>
+      </div>
+
+      <div class="activity">
+        <div class="activity-top">
+          <h3 class="activity-name">Alpaca Pilates</h3>
+          <span class="activity-price">$45</span>
+        </div>
+        <p class="activity-meta">Dates &amp; times to be announced</p>
+        <p class="activity-desc">A mat pilates class set among the alpacas. Schedule is still being finalized — email us and we'll let you know as soon as it's set.</p>
+        <a class="book-btn secondary" href="mailto:reagan@wileyroseconsulting.com?subject=Alpaca%20Pilates%20-%20Reserve%20My%20Spot">Reserve Your Spot</a>
+        <p class="note">Once dates are set, swap this button for a real booking link — see the note below.</p>
+        <div class="photo-slot">Add a Pilates photo here (e.g. pilates.jpg)</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Questions? Email <a href="mailto:reagan@wileyroseconsulting.com">reagan@wileyroseconsulting.com</a> &middot; Follow along on Instagram <a href="https://www.instagram.com/bendalpacaranch" target="_blank" rel="noopener">@bendalpacaranch</a></p>
+    </footer>
+  </div>
+</body>
+</html>
