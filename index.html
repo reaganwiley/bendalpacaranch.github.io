@@ -4,15 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bend Alpaca Ranch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sage: #4B5B3F;
-    --sand: #DDD0AE;
-    --cloud: #F7F4EC;
-    --charcoal: #2A2823;
-    --dusty-sky: #8FA39B;
-    --rule: #D8CFB8;
+    --sage: #1F3D2B;
+    --sand: #F5E9D3;
+    --cloud: #FFFFFF;
+    --charcoal: #34302A;
+    --dusty-sky: #4FA8DE;
+    --sun: #F5A83C;
+    --rule: #E7E2D6;
     --font: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --heading-font: 'Sora', var(--font);
   }
 
   * { box-sizing: border-box; }
@@ -36,11 +41,11 @@
   }
 
   .ranch-name {
-    font-family: var(--font);
-    font-weight: 700;
+    font-family: var(--heading-font);
+    font-weight: 800;
     font-size: clamp(2.2rem, 6vw, 3.4rem);
     margin: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--sage);
   }
 
@@ -72,7 +77,7 @@
   }
 
   h2 {
-    font-family: var(--font);
+    font-family: var(--heading-font);
     font-weight: 700;
     font-size: 1.4rem;
     margin: 0 0 28px;
@@ -96,7 +101,7 @@
   }
 
   .activity-name {
-    font-family: var(--font);
+    font-family: var(--heading-font);
     font-weight: 700;
     font-size: 1.2rem;
     margin: 0;
@@ -106,15 +111,15 @@
   .activity-price {
     font-family: var(--font);
     font-size: 1rem;
-    color: var(--sage);
-    font-weight: 600;
+    color: #C97F1F;
+    font-weight: 700;
     white-space: nowrap;
   }
 
   .activity-meta {
     font-family: var(--font);
     font-size: 0.9rem;
-    color: #6B6656;
+    color: #8C7B58;
     margin: 4px 0 12px;
   }
 
@@ -129,7 +134,7 @@
     display: inline-block;
     font-family: var(--font);
     font-size: 0.92rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--cloud);
     background: var(--sage);
     padding: 10px 20px;
@@ -137,7 +142,7 @@
     border-radius: 3px;
   }
 
-  .book-btn:hover { background: #3C4A33; }
+  .book-btn:hover { background: #16301F; }
 
   .book-btn.secondary {
     background: transparent;
@@ -153,7 +158,7 @@
   .note {
     font-family: var(--font);
     font-size: 0.82rem;
-    color: #8A8062;
+    color: #9C8B67;
     margin-top: 10px;
   }
 
@@ -171,14 +176,14 @@
   }
 
   .photo-slot.placeholder {
-    border: 1px dashed #B9AD8F;
-    background: #EFE9D8;
+    border: 1px dashed #D9C79E;
+    background: var(--sand);
     height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #8A8062;
+    color: #9C8B67;
     font-size: 0.85rem;
     padding: 16px;
   }
@@ -192,7 +197,7 @@
   }
 
   footer a {
-    color: var(--sage);
+    color: var(--dusty-sky);
     text-decoration: none;
   }
 
@@ -203,10 +208,290 @@
     section { padding: 32px 0; }
     .hero-photo img { height: 220px; }
   }
+
+  /* ---- Featured-in banner ---- */
+  .featured-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--dusty-sky) url('banner-sky.jpg') center 65% / cover no-repeat;
+    color: var(--cloud);
+    padding: 14px 16px;
+    text-align: center;
+  }
+
+  .featured-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 50, 75, 0.18);
+  }
+
+  .featured-banner .featured-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 14px;
+    font-family: var(--font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  .featured-banner .featured-label {
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.08em;
+  }
+
+  .featured-banner .dot {
+    opacity: 0.7;
+  }
+
+  /* ---- Calendar ---- */
+  .calendar-section {
+    padding: 48px 0 40px;
+  }
+
+  .calendar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .calendar-month-label {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--sage);
+  }
+
+  .calendar-nav-btn {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--sage);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: var(--font);
+    line-height: 1;
+  }
+
+  .calendar-nav-btn:hover {
+    background: var(--sage);
+    color: var(--cloud);
+    border-color: var(--sage);
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  .calendar-weekday {
+    font-family: var(--font);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+    color: #9C8B67;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-bottom: 6px;
+  }
+
+  .calendar-day {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.88rem;
+    color: var(--charcoal);
+    border-radius: 4px;
+    cursor: default;
+    background: transparent;
+  }
+
+  .calendar-day.empty {
+    visibility: hidden;
+  }
+
+  .calendar-day.has-event {
+    cursor: pointer;
+    background: var(--sand);
+    font-weight: 600;
+  }
+
+  .calendar-day.has-event:hover {
+    background: #EBD9AC;
+  }
+
+  .calendar-day.selected {
+    background: var(--dusty-sky) !important;
+    color: var(--cloud);
+  }
+
+  .calendar-day .event-dot {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--sun);
+  }
+
+  .calendar-day.selected .event-dot {
+    background: var(--cloud);
+  }
+
+  .calendar-details {
+    margin-top: 20px;
+    padding: 16px 18px;
+    background: var(--sand);
+    border-radius: 4px;
+    font-family: var(--font);
+  }
+
+  .calendar-details.empty-state {
+    background: transparent;
+    border: 1px dashed var(--rule);
+    color: #9C8B67;
+    font-size: 0.9rem;
+  }
+
+  .calendar-details .cd-title {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0 0 4px;
+    color: var(--sage);
+  }
+
+  .calendar-details .cd-meta {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--charcoal);
+  }
+
+  /* ---- Carousel ---- */
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--sand);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+    height: 420px;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sand);
+  }
+
+  .carousel-slide img,
+  .carousel-slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(42, 40, 35, 0.55);
+    color: var(--cloud);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-arrow:hover {
+    background: rgba(42, 40, 35, 0.8);
+  }
+
+  .carousel-arrow.prev { left: 12px; }
+  .carousel-arrow.next { right: 12px; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .carousel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--rule);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .carousel-dot.active {
+    background: var(--dusty-sky);
+  }
+
+  @media (max-width: 480px) {
+    .carousel-track { height: 300px; }
+  }
 </style>
 </head>
 <body>
+  <div class="featured-banner">
+    <div class="featured-inner">
+      <span class="featured-label">As Featured In</span>
+      <span class="dot">&middot;</span>
+      <span>Visit Bend</span>
+      <span class="dot">&middot;</span>
+      <span>Bend Buzz</span>
+      <span class="dot">&middot;</span>
+      <span>Good Day Bend</span>
+      <span class="dot">&middot;</span>
+      <span>Bend Bulletin</span>
+    </div>
+  </div>
   <div class="wrap">
+    <section class="calendar-section">
+      <h2>Upcoming Schedule</h2>
+      <div class="calendar-nav">
+        <button class="calendar-nav-btn" id="cal-prev" aria-label="Previous month">&#8249;</button>
+        <span class="calendar-month-label" id="cal-month-label"></span>
+        <button class="calendar-nav-btn" id="cal-next" aria-label="Next month">&#8250;</button>
+      </div>
+      <div class="calendar-grid" id="cal-grid"></div>
+      <div class="calendar-details empty-state" id="cal-details">Tap a highlighted date to see what's happening that day.</div>
+    </section>
+
     <header>
       <h1 class="ranch-name">Bend Alpaca Ranch</h1>
       <p class="tagline">Come spend time with the herd, out in the high desert just outside Bend, Oregon.</p>
@@ -226,9 +511,12 @@
         <p class="activity-meta">Tuesday evenings, 6:00 PM</p>
         <p class="activity-desc">A slow, grounding tai chi session held out in the pasture with the alpacas moving quietly around you.</p>
         <a class="book-btn" href="https://owlnest.org/taichi" target="_blank" rel="noopener">Book Now</a>
-        <div class="photo-slot">
-          <img src="tai-chi.jpg" alt="Practicing tai chi in the pasture with the alpaca herd">
+        <div class="carousel" id="taichi-carousel">
+          <div class="carousel-track" id="taichi-track"></div>
+          <button class="carousel-arrow prev" id="taichi-prev" aria-label="Previous photo">&#8249;</button>
+          <button class="carousel-arrow next" id="taichi-next" aria-label="Next photo">&#8250;</button>
         </div>
+        <div class="carousel-dots" id="taichi-dots"></div>
       </div>
 
       <div class="activity">
@@ -248,5 +536,165 @@
       <p>Questions? Email <a href="mailto:reagan@wileyroseconsulting.com">reagan@wileyroseconsulting.com</a> &middot; Follow along on Instagram <a href="https://www.instagram.com/bendalpacaranch" target="_blank" rel="noopener">@bendalpacaranch</a></p>
     </footer>
   </div>
+
+  <script>
+    // ============ TAI CHI CAROUSEL ============
+    // Add more slides here as you get more photos/videos.
+    // For a photo: { type: "image", src: "filename.jpg", alt: "description" }
+    // For a video: { type: "video", src: "filename.mp4" }
+    const taichiSlides = [
+      { type: "image", src: "tai-chi.jpg", alt: "Practicing tai chi in the pasture with the alpaca herd" }
+      // { type: "image", src: "tai-chi-2.jpg", alt: "Tai chi session at sunrise" },
+      // { type: "video", src: "tai-chi-video.mp4" }
+    ];
+
+    let taichiIndex = 0;
+
+    function renderTaichiCarousel() {
+      const track = document.getElementById('taichi-track');
+      const dotsWrap = document.getElementById('taichi-dots');
+      track.innerHTML = '';
+      dotsWrap.innerHTML = '';
+
+      taichiSlides.forEach((slide, i) => {
+        const slideEl = document.createElement('div');
+        slideEl.className = 'carousel-slide';
+        if (slide.type === 'video') {
+          slideEl.innerHTML = `<video src="${slide.src}" controls playsinline></video>`;
+        } else {
+          slideEl.innerHTML = `<img src="${slide.src}" alt="${slide.alt || ''}">`;
+        }
+        track.appendChild(slideEl);
+
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === taichiIndex ? ' active' : '');
+        dot.addEventListener('click', () => { taichiIndex = i; updateTaichiCarousel(); });
+        dotsWrap.appendChild(dot);
+      });
+
+      const arrows = document.querySelectorAll('#taichi-prev, #taichi-next');
+      arrows.forEach(a => a.style.display = taichiSlides.length > 1 ? 'flex' : 'none');
+      dotsWrap.style.display = taichiSlides.length > 1 ? 'flex' : 'none';
+
+      updateTaichiCarousel();
+    }
+
+    function updateTaichiCarousel() {
+      const track = document.getElementById('taichi-track');
+      track.style.transform = `translateX(-${taichiIndex * 100}%)`;
+      document.querySelectorAll('#taichi-dots .carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === taichiIndex);
+      });
+    }
+
+    document.getElementById('taichi-prev').addEventListener('click', () => {
+      taichiIndex = (taichiIndex - 1 + taichiSlides.length) % taichiSlides.length;
+      updateTaichiCarousel();
+    });
+    document.getElementById('taichi-next').addEventListener('click', () => {
+      taichiIndex = (taichiIndex + 1) % taichiSlides.length;
+      updateTaichiCarousel();
+    });
+
+    renderTaichiCarousel();
+
+    // ============ CALENDAR ============
+    const MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const WEEKDAY_LABELS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+    // Tai Chi runs Tuesdays 6:00 PM through the end of September 2026.
+    const TAICHI_END = new Date(2026, 8, 30); // Sept 30, 2026 (month is 0-indexed)
+
+    let calYear = 2026;
+    let calMonth = 8; // September (0-indexed)
+
+    function getEventsForDate(date) {
+      const events = [];
+      const day = date.getDay(); // 0=Sun..6=Sat
+
+      if (day === 2 && date <= TAICHI_END) { // Tuesday
+        events.push({
+          name: "Alpaca Tai Chi",
+          time: "6:00 PM",
+          note: "A slow, grounding tai chi session out in the pasture with the herd."
+        });
+      }
+      if (day === 3 || day === 5) { // Wednesday or Friday
+        events.push({
+          name: "Alpaca Pilates",
+          time: "4:00 PM",
+          note: "A mat pilates class set among the alpacas."
+        });
+      }
+      return events;
+    }
+
+    function renderCalendar() {
+      const grid = document.getElementById('cal-grid');
+      const label = document.getElementById('cal-month-label');
+      grid.innerHTML = '';
+      label.textContent = `${MONTH_NAMES[calMonth]} ${calYear}`;
+
+      WEEKDAY_LABELS.forEach(w => {
+        const el = document.createElement('div');
+        el.className = 'calendar-weekday';
+        el.textContent = w;
+        grid.appendChild(el);
+      });
+
+      const firstDay = new Date(calYear, calMonth, 1).getDay();
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('div');
+        empty.className = 'calendar-day empty';
+        grid.appendChild(empty);
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(calYear, calMonth, d);
+        const events = getEventsForDate(date);
+        const cell = document.createElement('div');
+        cell.className = 'calendar-day' + (events.length ? ' has-event' : '');
+        cell.textContent = d;
+
+        if (events.length) {
+          const dot = document.createElement('span');
+          dot.className = 'event-dot';
+          cell.appendChild(dot);
+          cell.addEventListener('click', () => showDetails(date, events, cell));
+        }
+
+        grid.appendChild(cell);
+      }
+    }
+
+    function showDetails(date, events, cellEl) {
+      document.querySelectorAll('.calendar-day').forEach(c => c.classList.remove('selected'));
+      cellEl.classList.add('selected');
+
+      const details = document.getElementById('cal-details');
+      details.classList.remove('empty-state');
+      const dateLabel = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+
+      details.innerHTML = events.map(e => `
+        <div class="cd-title">${e.name} &mdash; ${dateLabel}</div>
+        <p class="cd-meta">${e.time}. ${e.note}</p>
+      `).join('<hr style="border:none;border-top:1px solid var(--rule);margin:10px 0;">');
+    }
+
+    document.getElementById('cal-prev').addEventListener('click', () => {
+      calMonth--;
+      if (calMonth < 0) { calMonth = 11; calYear--; }
+      renderCalendar();
+    });
+    document.getElementById('cal-next').addEventListener('click', () => {
+      calMonth++;
+      if (calMonth > 11) { calMonth = 0; calYear++; }
+      renderCalendar();
+    });
+
+    renderCalendar();
+  </script>
 </body>
 </html>
