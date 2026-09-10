@@ -395,7 +395,7 @@
   .carousel-slide video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
   }
 
@@ -428,6 +428,7 @@
     justify-content: center;
     gap: 8px;
     margin-top: 10px;
+    margin-bottom: 20px;
   }
 
   .carousel-dot {
@@ -475,6 +476,12 @@
       <h2>Upcoming Activities</h2>
 
       <div class="activity">
+        <div class="carousel" id="taichi-carousel">
+          <div class="carousel-track" id="taichi-track"></div>
+          <button class="carousel-arrow prev" id="taichi-prev" aria-label="Previous photo">&#8249;</button>
+          <button class="carousel-arrow next" id="taichi-next" aria-label="Next photo">&#8250;</button>
+        </div>
+        <div class="carousel-dots" id="taichi-dots"></div>
         <div class="activity-top">
           <h3 class="activity-name">Alpaca Tai Chi</h3>
           <span class="activity-price">$45</span>
@@ -482,12 +489,6 @@
         <p class="activity-meta">Tuesday evenings, 6:00 PM</p>
         <p class="activity-desc">A slow, grounding tai chi session held out in the pasture with the alpacas moving quietly around you.</p>
         <a class="book-btn" href="https://owlnest.org/taichi" target="_blank" rel="noopener">Book Now</a>
-        <div class="carousel" id="taichi-carousel">
-          <div class="carousel-track" id="taichi-track"></div>
-          <button class="carousel-arrow prev" id="taichi-prev" aria-label="Previous photo">&#8249;</button>
-          <button class="carousel-arrow next" id="taichi-next" aria-label="Next photo">&#8250;</button>
-        </div>
-        <div class="carousel-dots" id="taichi-dots"></div>
       </div>
 
       <div class="activity">
