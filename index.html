@@ -52,49 +52,51 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(20, 24, 20, 0) 40%, rgba(15, 18, 15, 0.72) 100%);
+    background: radial-gradient(ellipse at center, rgba(10, 14, 12, 0.58) 0%, rgba(10, 14, 12, 0.4) 45%, rgba(10, 14, 12, 0.18) 75%);
   }
 
   .hero-inner {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 1;
-    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 900px;
     margin: 0 auto;
-    width: 100%;
-    padding: 24px 24px 40px;
+    padding: 24px;
   }
 
   .eyebrow {
     font-family: var(--font);
     font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.14em;
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0 0 6px;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 12px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
   }
 
   .ranch-name {
     font-family: var(--heading-font);
     font-weight: 800;
-    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    font-size: clamp(3rem, 9vw, 6.5rem);
     margin: 0;
     letter-spacing: -0.03em;
     color: var(--cloud);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
   .tagline {
     font-family: var(--font);
     font-weight: 400;
-    font-size: 1.05rem;
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
     color: rgba(255, 255, 255, 0.95);
-    margin: 10px 0 0;
-    max-width: 60ch;
+    margin: 20px 0 0;
+    max-width: 62ch;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
   }
 
@@ -309,17 +311,17 @@
 
   .calendar-day.has-event {
     cursor: pointer;
-    background: var(--sand);
+    background: var(--dusty-sky);
     font-weight: 600;
   }
 
   .calendar-day.has-event:hover {
-    background: #EBD9AC;
+    background: #7C93B6;
   }
 
   .calendar-day.selected {
-    background: var(--dusty-sky) !important;
-    color: var(--charcoal);
+    background: var(--dusty-sky-deep) !important;
+    color: var(--cloud);
   }
 
   .calendar-day .event-dot {
@@ -334,7 +336,7 @@
   }
 
   .calendar-day.selected .event-dot {
-    background: var(--charcoal);
+    background: var(--cloud);
   }
 
   .calendar-details {
@@ -493,11 +495,22 @@
           <h3 class="activity-name">Alpaca Pilates</h3>
           <span class="activity-price">$45</span>
         </div>
-        <p class="activity-meta">Dates &amp; times to be announced</p>
-        <p class="activity-desc">A mat pilates class set among the alpacas. Schedule is still being finalized — email us and we'll let you know as soon as it's set.</p>
+        <p class="activity-meta">Wednesdays starting September 30, 6:00 PM</p>
+        <p class="activity-desc">A mat pilates class set among the alpacas.</p>
         <a class="book-btn secondary" href="mailto:reagan@wileyroseconsulting.com?subject=Alpaca%20Pilates%20-%20Reserve%20My%20Spot">Reserve Your Spot</a>
-        <p class="note">Once dates are set, swap this button for a real booking link.</p>
         <div class="photo-slot placeholder">Add a Pilates photo here (e.g. pilates.jpg)</div>
+      </div>
+
+      <div class="activity">
+        <div class="activity-top">
+          <h3 class="activity-name">Reiki-Infused Sound Bath</h3>
+          <span class="activity-price">TBD</span>
+        </div>
+        <p class="activity-meta">Sunday, September 27, 5:00 PM</p>
+        <p class="activity-desc">A restorative sound bath session infused with reiki energy healing, out among the herd.</p>
+        <a class="book-btn secondary" href="mailto:reagan@wileyroseconsulting.com?subject=Reiki-Infused%20Sound%20Bath%20-%20Reserve%20My%20Spot">Reserve Your Spot</a>
+        <p class="note">Add a price and swap this for a real booking link once set.</p>
+        <div class="photo-slot placeholder">Add a Sound Bath photo here (e.g. sound-bath.jpg)</div>
       </div>
     </section>
 
@@ -574,8 +587,18 @@
     // Tai Chi runs Tuesdays 6:00 PM through the end of September 2026.
     const TAICHI_END = new Date(2026, 8, 30); // Sept 30, 2026 (month is 0-indexed)
 
+    // Pilates runs Wednesdays 6:00 PM starting September 30, 2026.
+    const PILATES_START = new Date(2026, 8, 30);
+
+    // One-time Reiki-Infused Sound Bath on September 27, 2026.
+    const SOUND_BATH_DATE = new Date(2026, 8, 27);
+
     let calYear = 2026;
     let calMonth = 8; // September (0-indexed)
+
+    function isSameDate(a, b) {
+      return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    }
 
     function getEventsForDate(date) {
       const events = [];
@@ -588,11 +611,18 @@
           note: "A slow, grounding tai chi session out in the pasture with the herd."
         });
       }
-      if (day === 3 || day === 5) { // Wednesday or Friday
+      if (day === 3 && date >= PILATES_START) { // Wednesday, starting Sept 30
         events.push({
           name: "Alpaca Pilates",
-          time: "4:00 PM",
+          time: "6:00 PM",
           note: "A mat pilates class set among the alpacas."
+        });
+      }
+      if (isSameDate(date, SOUND_BATH_DATE)) {
+        events.push({
+          name: "Reiki-Infused Sound Bath",
+          time: "5:00 PM",
+          note: "A restorative sound bath session infused with reiki energy healing, out among the herd."
         });
       }
       return events;
