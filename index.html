@@ -39,26 +39,43 @@
 
   .hero {
     position: relative;
-    min-height: 520px;
-    display: flex;
-    align-items: flex-end;
-    background: #333 url('hero.jpg') center 58% / cover no-repeat;
+    overflow: hidden;
+  }
+
+  .hero img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(20, 24, 20, 0.05) 0%, rgba(15, 18, 15, 0.65) 100%);
+    background: linear-gradient(180deg, rgba(20, 24, 20, 0) 40%, rgba(15, 18, 15, 0.72) 100%);
   }
 
   .hero-inner {
-    position: relative;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
     max-width: 720px;
     margin: 0 auto;
     width: 100%;
-    padding: 48px 24px 48px;
+    padding: 24px 24px 40px;
+  }
+
+  .eyebrow {
+    font-family: var(--font);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 6px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
   }
 
   .ranch-name {
@@ -214,52 +231,7 @@
   footer a:hover { text-decoration: underline; }
 
   @media (max-width: 480px) {
-    .hero { min-height: 400px; }
     section { padding: 32px 0; }
-  }
-
-  /* ---- Featured-in banner ---- */
-  .featured-banner {
-    position: relative;
-    overflow: hidden;
-    background: var(--dusty-sky) url('banner-sky.jpg') center 65% / cover no-repeat;
-    color: var(--cloud);
-    padding: 14px 16px;
-    text-align: center;
-  }
-
-  .featured-banner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(20, 50, 75, 0.18);
-  }
-
-  .featured-banner .featured-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 720px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 6px 14px;
-    font-family: var(--font);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  }
-
-  .featured-banner .featured-label {
-    color: rgba(255, 255, 255, 0.9);
-    letter-spacing: 0.08em;
-  }
-
-  .featured-banner .dot {
-    opacity: 0.7;
   }
 
   /* ---- Calendar ---- */
@@ -476,22 +448,11 @@
 </style>
 </head>
 <body>
-  <div class="featured-banner">
-    <div class="featured-inner">
-      <span class="featured-label">As Featured In</span>
-      <span class="dot">&middot;</span>
-      <span>Visit Bend</span>
-      <span class="dot">&middot;</span>
-      <span>Bend Buzz</span>
-      <span class="dot">&middot;</span>
-      <span>Good Day Bend</span>
-      <span class="dot">&middot;</span>
-      <span>Bend Bulletin</span>
-    </div>
-  </div>
-  <header class="hero" role="img" aria-label="Alpacas grazing at sunset with the Three Sisters mountains in the background at Bend Alpaca Ranch">
+  <header class="hero">
+    <img src="hero.jpg" alt="Alpacas grazing at sunset with the Three Sisters mountains in the background at Bend Alpaca Ranch">
     <div class="hero-inner">
-      <h1 class="ranch-name">Welcome to Bend Alpaca Ranch</h1>
+      <p class="eyebrow">Welcome to</p>
+      <h1 class="ranch-name">Bend Alpaca Ranch</h1>
       <p class="tagline">Bend Alpaca Ranch offers restorative wellness experiences - from Tai Chi and Pilates to reiki infused sound baths. Surrounded by friendly alpacas and panoramic views in beautiful Tumalo, Oregon.</p>
     </div>
   </header>
