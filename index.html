@@ -374,12 +374,15 @@
     overflow: hidden;
     border-radius: 2px;
     background: var(--sand);
+    width: min(100%, 320px);
+    aspect-ratio: 3 / 4;
+    margin: 0 auto;
   }
 
   .carousel-track {
     display: flex;
     transition: transform 0.35s ease;
-    height: 420px;
+    height: 100%;
   }
 
   .carousel-slide {
@@ -444,10 +447,6 @@
   .carousel-dot.active {
     background: var(--dusty-sky);
   }
-
-  @media (max-width: 480px) {
-    .carousel-track { height: 300px; }
-  }
 </style>
 </head>
 <body>
@@ -498,7 +497,7 @@
         </div>
         <p class="activity-meta">Wednesdays starting September 30, 6:00 PM</p>
         <p class="activity-desc">A mat pilates class set among the alpacas.</p>
-        <a class="book-btn secondary" href="mailto:reagan@wileyroseconsulting.com?subject=Alpaca%20Pilates%20-%20Reserve%20My%20Spot">Reserve Your Spot</a>
+        <a class="book-btn" href="https://buy.stripe.com/3cI3cxewr6FN5akbmMb7y00" target="_blank" rel="noopener">Book Now</a>
         <div class="photo-slot placeholder">Add a Pilates photo here (e.g. pilates.jpg)</div>
       </div>
 
