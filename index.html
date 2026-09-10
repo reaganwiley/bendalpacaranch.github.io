@@ -13,7 +13,8 @@
     --sand: #F5E9D3;
     --cloud: #FFFFFF;
     --charcoal: #34302A;
-    --dusty-sky: #4FA8DE;
+    --dusty-sky: #9FB0CC;
+    --dusty-sky-deep: #4A6385;
     --sun: #F5A83C;
     --rule: #E7E2D6;
     --font: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -36,8 +37,28 @@
     padding: 0 24px;
   }
 
-  header {
-    padding: 64px 0 40px;
+  .hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    background: #333 url('hero.jpg') center 58% / cover no-repeat;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 24, 20, 0.05) 0%, rgba(15, 18, 15, 0.65) 100%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 48px 24px 48px;
   }
 
   .ranch-name {
@@ -46,30 +67,18 @@
     font-size: clamp(2.2rem, 6vw, 3.4rem);
     margin: 0;
     letter-spacing: -0.03em;
-    color: var(--sage);
+    color: var(--cloud);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
   }
 
   .tagline {
     font-family: var(--font);
     font-weight: 400;
     font-size: 1.05rem;
-    color: var(--charcoal);
+    color: rgba(255, 255, 255, 0.95);
     margin: 10px 0 0;
-    max-width: 46ch;
-  }
-
-  .hero-photo {
-    margin-top: 36px;
-    overflow: hidden;
-  }
-
-  .hero-photo img {
-    width: 100%;
-    aspect-ratio: 1284 / 722;
-    height: auto;
-    object-fit: cover;
-    display: block;
-    border-radius: 2px;
+    max-width: 60ch;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
   }
 
   section {
@@ -198,16 +207,15 @@
   }
 
   footer a {
-    color: var(--dusty-sky);
+    color: var(--dusty-sky-deep);
     text-decoration: none;
   }
 
   footer a:hover { text-decoration: underline; }
 
   @media (max-width: 480px) {
-    header { padding: 44px 0 28px; }
+    .hero { min-height: 400px; }
     section { padding: 32px 0; }
-    .hero-photo img { aspect-ratio: 1284 / 722; }
   }
 
   /* ---- Featured-in banner ---- */
@@ -339,7 +347,7 @@
 
   .calendar-day.selected {
     background: var(--dusty-sky) !important;
-    color: var(--cloud);
+    color: var(--charcoal);
   }
 
   .calendar-day .event-dot {
@@ -354,7 +362,7 @@
   }
 
   .calendar-day.selected .event-dot {
-    background: var(--cloud);
+    background: var(--charcoal);
   }
 
   .calendar-details {
@@ -481,15 +489,14 @@
       <span>Bend Bulletin</span>
     </div>
   </div>
-  <div class="wrap">
-    <header>
-      <h1 class="ranch-name">Bend Alpaca Ranch</h1>
-      <p class="tagline">Come spend time with the herd, out in the high desert just outside Bend, Oregon.</p>
-      <div class="hero-photo">
-        <img src="hero.jpg" alt="The herd of alpacas grazing at sunset at Bend Alpaca Ranch">
-      </div>
-    </header>
+  <header class="hero" role="img" aria-label="Alpacas grazing at sunset with the Three Sisters mountains in the background at Bend Alpaca Ranch">
+    <div class="hero-inner">
+      <h1 class="ranch-name">Welcome to Bend Alpaca Ranch</h1>
+      <p class="tagline">Bend Alpaca Ranch offers restorative wellness experiences - from Tai Chi and Pilates to reiki infused sound baths. Surrounded by friendly alpacas and panoramic views in beautiful Tumalo, Oregon.</p>
+    </div>
+  </header>
 
+  <div class="wrap">
     <section class="calendar-section">
       <h2>Upcoming Schedule</h2>
       <div class="calendar-nav">
