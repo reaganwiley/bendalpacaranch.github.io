@@ -65,7 +65,8 @@
 
   .hero-photo img {
     width: 100%;
-    height: 320px;
+    aspect-ratio: 1284 / 722;
+    height: auto;
     object-fit: cover;
     display: block;
     border-radius: 2px;
@@ -206,7 +207,7 @@
   @media (max-width: 480px) {
     header { padding: 44px 0 28px; }
     section { padding: 32px 0; }
-    .hero-photo img { height: 220px; }
+    .hero-photo img { aspect-ratio: 1284 / 722; }
   }
 
   /* ---- Featured-in banner ---- */
@@ -481,6 +482,14 @@
     </div>
   </div>
   <div class="wrap">
+    <header>
+      <h1 class="ranch-name">Bend Alpaca Ranch</h1>
+      <p class="tagline">Come spend time with the herd, out in the high desert just outside Bend, Oregon.</p>
+      <div class="hero-photo">
+        <img src="hero.jpg" alt="The herd of alpacas grazing at sunset at Bend Alpaca Ranch">
+      </div>
+    </header>
+
     <section class="calendar-section">
       <h2>Upcoming Schedule</h2>
       <div class="calendar-nav">
@@ -491,14 +500,6 @@
       <div class="calendar-grid" id="cal-grid"></div>
       <div class="calendar-details empty-state" id="cal-details">Tap a highlighted date to see what's happening that day.</div>
     </section>
-
-    <header>
-      <h1 class="ranch-name">Bend Alpaca Ranch</h1>
-      <p class="tagline">Come spend time with the herd, out in the high desert just outside Bend, Oregon.</p>
-      <div class="hero-photo">
-        <img src="hero.jpg" alt="Sitting in the pasture with the alpacas at Bend Alpaca Ranch">
-      </div>
-    </header>
 
     <section>
       <h2>Upcoming Activities</h2>
