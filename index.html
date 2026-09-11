@@ -228,18 +228,11 @@
   }
 
   .photo-trio img {
+    flex: 1 1 0;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-  }
-
-  .photo-trio img.side-photo {
-    flex: 0 0 38%;
-  }
-
-  .photo-trio img.filler-photo {
-    flex: 1 1 auto;
-    min-width: 0;
   }
 
   @media (max-width: 480px) {
@@ -538,6 +531,22 @@
       </div>
 
       <div class="activity">
+        <div class="photo-trio">
+          <img src="reiki.jpg" alt="Reiki practitioner working on a guest lying in the pasture">
+          <img src="alpaca-face-tile.jpg" alt="Alpaca looking at the camera at Bend Alpaca Ranch">
+          <img src="sound-bath.jpg" alt="Sound bath practitioner playing crystal singing bowls">
+        </div>
+        <div class="activity-top">
+          <h3 class="activity-name">Reiki-Infused Sound Bath</h3>
+          <span class="activity-price">TBD</span>
+        </div>
+        <p class="activity-meta">Sunday, September 27, 5:00 PM</p>
+        <p class="activity-desc">Join Lisa of Step Into Stillness and Amy Mew of Light, Love, and Reiki for a peaceful evening of connection, relaxation, and renewal on the alpaca farm.<br><br>We&rsquo;ll begin with a special alpaca feeding experience, giving you time to connect with these gentle, curious animals and take in the beauty of the farm.<br><br>Then, settle in for a deeply restorative sound bath infused with Reiki energy healing. Surrounded by fresh air, open sky, and the peaceful presence of the alpacas, allow soothing sound and Reiki to help you release tension, quiet the mind, and reconnect with yourself.<br><br>Come as you are and leave feeling more grounded, spacious, and restored.</p>
+        <a class="book-btn secondary" href="mailto:reagan@wileyroseconsulting.com?subject=Reiki-Infused%20Sound%20Bath%20-%20Reserve%20My%20Spot">Reserve Your Spot</a>
+        <p class="note">Add a price and swap this for a real booking link once set.</p>
+      </div>
+
+      <div class="activity">
         <div class="single-photo">
           <img src="pilates.jpg" alt="Coming soon">
         </div>
@@ -548,22 +557,6 @@
         <p class="activity-meta">Wednesdays starting September 30, 6:00 PM</p>
         <p class="activity-desc">A mat pilates class set among the alpacas.</p>
         <a class="book-btn" href="https://buy.stripe.com/3cI3cxewr6FN5akbmMb7y00" target="_blank" rel="noopener">Book Now</a>
-      </div>
-
-      <div class="activity">
-        <div class="photo-trio">
-          <img class="side-photo" src="reiki.jpg" alt="Reiki practitioner working on a guest lying in the pasture">
-          <img class="filler-photo" src="alpacas-cropped.jpg" alt="Alpacas grazing at Bend Alpaca Ranch">
-          <img class="side-photo" src="sound-bath.jpg" alt="Sound bath practitioner playing crystal singing bowls">
-        </div>
-        <div class="activity-top">
-          <h3 class="activity-name">Reiki-Infused Sound Bath</h3>
-          <span class="activity-price">TBD</span>
-        </div>
-        <p class="activity-meta">Sunday, September 27, 5:00 PM</p>
-        <p class="activity-desc">A restorative sound bath session infused with reiki energy healing, out among the herd.</p>
-        <a class="book-btn secondary" href="mailto:reagan@wileyroseconsulting.com?subject=Reiki-Infused%20Sound%20Bath%20-%20Reserve%20My%20Spot">Reserve Your Spot</a>
-        <p class="note">Add a price and swap this for a real booking link once set.</p>
       </div>
     </section>
 
