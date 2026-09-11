@@ -228,11 +228,18 @@
   }
 
   .photo-trio img {
-    flex: 1 1 0;
-    width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .photo-trio img.side-photo {
+    flex: 0 0 38%;
+  }
+
+  .photo-trio img.filler-photo {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   @media (max-width: 480px) {
@@ -545,9 +552,9 @@
 
       <div class="activity">
         <div class="photo-trio">
-          <img src="reiki.jpg" alt="Reiki practitioner working on a guest lying in the pasture">
-          <img src="alpacas.jpg" alt="Alpacas grazing at Bend Alpaca Ranch">
-          <img src="sound-bath.jpg" alt="Sound bath practitioner playing crystal singing bowls">
+          <img class="side-photo" src="reiki.jpg" alt="Reiki practitioner working on a guest lying in the pasture">
+          <img class="filler-photo" src="alpacas-cropped.jpg" alt="Alpacas grazing at Bend Alpaca Ranch">
+          <img class="side-photo" src="sound-bath.jpg" alt="Sound bath practitioner playing crystal singing bowls">
         </div>
         <div class="activity-top">
           <h3 class="activity-name">Reiki-Infused Sound Bath</h3>
