@@ -13,8 +13,7 @@
     --sand: #F5E9D3;
     --cloud: #FFFFFF;
     --charcoal: #34302A;
-    --dusty-sky: #9FB0CC;
-    --dusty-sky-deep: #4A6385;
+    --dusty-sky: #4FA8DE;
     --sun: #F5A83C;
     --rule: #E7E2D6;
     --font: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -37,67 +36,39 @@
     padding: 0 24px;
   }
 
-  .hero {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, rgba(10, 14, 12, 0.58) 0%, rgba(10, 14, 12, 0.4) 45%, rgba(10, 14, 12, 0.18) 75%);
-  }
-
-  .hero-inner {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 24px;
-  }
-
-  .eyebrow {
-    font-family: var(--font);
-    font-weight: 600;
-    font-size: clamp(1rem, 2.2vw, 1.4rem);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.92);
-    margin: 0 0 12px;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+  header {
+    padding: 64px 0 40px;
   }
 
   .ranch-name {
     font-family: var(--heading-font);
     font-weight: 800;
-    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
     margin: 0;
     letter-spacing: -0.03em;
-    color: var(--cloud);
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    color: var(--sage);
   }
 
   .tagline {
     font-family: var(--font);
     font-weight: 400;
-    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
-    color: rgba(255, 255, 255, 0.95);
-    margin: 20px 0 0;
-    max-width: 62ch;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    margin: 10px 0 0;
+    max-width: 46ch;
+  }
+
+  .hero-photo {
+    margin-top: 36px;
+    overflow: hidden;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
   }
 
   section {
@@ -108,7 +79,7 @@
   h2 {
     font-family: var(--heading-font);
     font-weight: 700;
-    font-size: 1.65rem;
+    font-size: 1.4rem;
     margin: 0 0 28px;
     color: var(--sage);
     letter-spacing: -0.01em;
@@ -132,7 +103,7 @@
   .activity-name {
     font-family: var(--heading-font);
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin: 0;
     letter-spacing: -0.01em;
   }
@@ -217,46 +188,6 @@
     padding: 16px;
   }
 
-  /* ---- Photo trio (reiki / alpacas / sound bath) ---- */
-  .photo-trio {
-    display: flex;
-    gap: 4px;
-    overflow: hidden;
-    border-radius: 2px;
-    width: 100%;
-    aspect-ratio: 3024 / 1118;
-  }
-
-  .photo-trio img {
-    flex: 1 1 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  @media (max-width: 480px) {
-    .photo-trio {
-      aspect-ratio: auto;
-      height: 220px;
-    }
-  }
-
-  /* ---- Single filler/placeholder photo (matches carousel/trio sizing) ---- */
-  .single-photo {
-    width: 100%;
-    aspect-ratio: 3024 / 1118;
-    overflow: hidden;
-    border-radius: 2px;
-  }
-
-  .single-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
   footer {
     padding: 40px 0 64px;
     border-top: 1px solid var(--rule);
@@ -266,14 +197,60 @@
   }
 
   footer a {
-    color: var(--dusty-sky-deep);
+    color: var(--dusty-sky);
     text-decoration: none;
   }
 
   footer a:hover { text-decoration: underline; }
 
   @media (max-width: 480px) {
+    header { padding: 44px 0 28px; }
     section { padding: 32px 0; }
+    .hero-photo img { height: 220px; }
+  }
+
+  /* ---- Featured-in banner ---- */
+  .featured-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--dusty-sky) url('banner-sky.jpg') center 65% / cover no-repeat;
+    color: var(--cloud);
+    padding: 14px 16px;
+    text-align: center;
+  }
+
+  .featured-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 50, 75, 0.18);
+  }
+
+  .featured-banner .featured-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 14px;
+    font-family: var(--font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  .featured-banner .featured-label {
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.08em;
+  }
+
+  .featured-banner .dot {
+    opacity: 0.7;
   }
 
   /* ---- Calendar ---- */
@@ -291,7 +268,7 @@
   .calendar-month-label {
     font-family: var(--heading-font);
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--sage);
   }
 
@@ -351,16 +328,16 @@
 
   .calendar-day.has-event {
     cursor: pointer;
-    background: var(--dusty-sky);
+    background: var(--sand);
     font-weight: 600;
   }
 
   .calendar-day.has-event:hover {
-    background: #7C93B6;
+    background: #EBD9AC;
   }
 
   .calendar-day.selected {
-    background: var(--dusty-sky-deep) !important;
+    background: var(--dusty-sky) !important;
     color: var(--cloud);
   }
 
@@ -397,7 +374,7 @@
   .calendar-details .cd-title {
     font-family: var(--heading-font);
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     margin: 0 0 4px;
     color: var(--sage);
   }
@@ -414,15 +391,12 @@
     overflow: hidden;
     border-radius: 2px;
     background: var(--sand);
-    width: 100%;
-    aspect-ratio: 3024 / 1118;
-    margin: 0 auto;
   }
 
   .carousel-track {
     display: flex;
     transition: transform 0.35s ease;
-    height: 100%;
+    height: 420px;
   }
 
   .carousel-slide {
@@ -438,7 +412,7 @@
   .carousel-slide video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -471,7 +445,6 @@
     justify-content: center;
     gap: 8px;
     margin-top: 10px;
-    margin-bottom: 20px;
   }
 
   .carousel-dot {
@@ -487,18 +460,26 @@
   .carousel-dot.active {
     background: var(--dusty-sky);
   }
+
+  @media (max-width: 480px) {
+    .carousel-track { height: 300px; }
+  }
 </style>
 </head>
 <body>
-  <header class="hero">
-    <img src="hero.jpg" alt="Alpacas grazing at sunset with the Three Sisters mountains in the background at Bend Alpaca Ranch">
-    <div class="hero-inner">
-      <p class="eyebrow">Welcome to</p>
-      <h1 class="ranch-name">Bend Alpaca Ranch</h1>
-      <p class="tagline">Bend Alpaca Ranch offers restorative wellness experiences - from Tai Chi and Pilates to reiki infused sound baths. Surrounded by friendly alpacas and panoramic views in beautiful Tumalo, Oregon.</p>
+  <div class="featured-banner">
+    <div class="featured-inner">
+      <span class="featured-label">As Featured In</span>
+      <span class="dot">&middot;</span>
+      <span>Visit Bend</span>
+      <span class="dot">&middot;</span>
+      <span>Bend Buzz</span>
+      <span class="dot">&middot;</span>
+      <span>Good Day Bend</span>
+      <span class="dot">&middot;</span>
+      <span>Bend Bulletin</span>
     </div>
-  </header>
-
+  </div>
   <div class="wrap">
     <section class="calendar-section">
       <h2>Upcoming Schedule</h2>
@@ -511,16 +492,18 @@
       <div class="calendar-details empty-state" id="cal-details">Tap a highlighted date to see what's happening that day.</div>
     </section>
 
+    <header>
+      <h1 class="ranch-name">Bend Alpaca Ranch</h1>
+      <p class="tagline">Come spend time with the herd, out in the high desert just outside Bend, Oregon.</p>
+      <div class="hero-photo">
+        <img src="hero.jpg" alt="Sitting in the pasture with the alpacas at Bend Alpaca Ranch">
+      </div>
+    </header>
+
     <section>
       <h2>Upcoming Activities</h2>
 
       <div class="activity">
-        <div class="carousel" id="taichi-carousel">
-          <div class="carousel-track" id="taichi-track"></div>
-          <button class="carousel-arrow prev" id="taichi-prev" aria-label="Previous photo">&#8249;</button>
-          <button class="carousel-arrow next" id="taichi-next" aria-label="Next photo">&#8250;</button>
-        </div>
-        <div class="carousel-dots" id="taichi-dots"></div>
         <div class="activity-top">
           <h3 class="activity-name">Alpaca Tai Chi</h3>
           <span class="activity-price">$45</span>
@@ -528,34 +511,26 @@
         <p class="activity-meta">Tuesday evenings, 6:00 PM</p>
         <p class="activity-desc">A slow, grounding tai chi session held out in the pasture with the alpacas moving quietly around you.</p>
         <a class="book-btn" href="https://owlnest.org/taichi" target="_blank" rel="noopener">Book Now</a>
+        <div class="carousel" id="taichi-carousel">
+          <div class="carousel-track" id="taichi-track"></div>
+          <button class="carousel-arrow prev" id="taichi-prev" aria-label="Previous photo">&#8249;</button>
+          <button class="carousel-arrow next" id="taichi-next" aria-label="Next photo">&#8250;</button>
+        </div>
+        <div class="carousel-dots" id="taichi-dots"></div>
       </div>
 
       <div class="activity">
-        <div class="photo-trio">
-          <img src="reiki.jpg" alt="Reiki practitioner working on a guest lying in the pasture">
-          <img src="alpaca-face-tile.jpg" alt="Alpaca looking at the camera at Bend Alpaca Ranch">
-          <img src="sound-bath.jpg" alt="Sound bath practitioner playing crystal singing bowls">
-        </div>
-        <div class="activity-top">
-          <h3 class="activity-name">Reiki-Infused Sound Bath</h3>
-          <span class="activity-price">$45</span>
-        </div>
-        <p class="activity-meta">Sunday, September 27, 5:00 PM</p>
-        <p class="activity-desc">Join Lisa of Step Into Stillness and Amy Mew of Light, Love, and Reiki for a peaceful evening of connection, relaxation, and renewal on the alpaca farm.<br><br>We&rsquo;ll begin with a special alpaca feeding experience, giving you time to connect with these gentle, curious animals and take in the beauty of the farm.<br><br>Then, settle in for a deeply restorative sound bath infused with Reiki energy healing. Surrounded by fresh air, open sky, and the peaceful presence of the alpacas, allow soothing sound and Reiki to help you release tension, quiet the mind, and reconnect with yourself.<br><br>Come as you are and leave feeling more grounded, spacious, and restored.</p>
-        <a class="book-btn" href="https://buy.stripe.com/5kQ4gBgEz0hp5akgH6b7y01" target="_blank" rel="noopener">Book Now</a>
-      </div>
-
-      <div class="activity">
-        <div class="single-photo">
-          <img src="pilates.jpg" alt="Coming soon">
-        </div>
         <div class="activity-top">
           <h3 class="activity-name">Alpaca Pilates</h3>
           <span class="activity-price">$45</span>
         </div>
-        <p class="activity-meta">Wednesdays starting September 30, 6:00 PM</p>
-        <p class="activity-desc">A mat pilates class set among the alpacas.</p>
-        <a class="book-btn" href="https://buy.stripe.com/3cI3cxewr6FN5akbmMb7y00" target="_blank" rel="noopener">Book Now</a>
+        <p class="activity-meta">Dates &amp; times to be announced</p>
+        <p class="activity-desc">A mat pilates class set among the alpacas. Schedule is still being finalized — email us and we'll let you know as soon as it's set.</p>
+        <a class="book-btn secondary" href="mailto:reagan@wileyroseconsulting.com?subject=Alpaca%20Pilates%20-%20Reserve%20My%20Spot">Reserve Your Spot</a>
+        <p class="note">Once dates are set, swap this button for a real booking link.</p>
+        <div class="photo-slot">
+          <img src="pilates.jpg" alt="Aerial view of a mat pilates class in the pasture with the alpaca herd nearby">
+        </div>
       </div>
     </section>
 
@@ -632,18 +607,8 @@
     // Tai Chi runs Tuesdays 6:00 PM through the end of September 2026.
     const TAICHI_END = new Date(2026, 8, 30); // Sept 30, 2026 (month is 0-indexed)
 
-    // Pilates runs Wednesdays 6:00 PM starting September 30, 2026.
-    const PILATES_START = new Date(2026, 8, 30);
-
-    // One-time Reiki-Infused Sound Bath on September 27, 2026.
-    const SOUND_BATH_DATE = new Date(2026, 8, 27);
-
     let calYear = 2026;
     let calMonth = 8; // September (0-indexed)
-
-    function isSameDate(a, b) {
-      return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
-    }
 
     function getEventsForDate(date) {
       const events = [];
@@ -656,18 +621,11 @@
           note: "A slow, grounding tai chi session out in the pasture with the herd."
         });
       }
-      if (day === 3 && date >= PILATES_START) { // Wednesday, starting Sept 30
+      if (day === 3 || day === 5) { // Wednesday or Friday
         events.push({
           name: "Alpaca Pilates",
-          time: "6:00 PM",
+          time: "4:00 PM",
           note: "A mat pilates class set among the alpacas."
-        });
-      }
-      if (isSameDate(date, SOUND_BATH_DATE)) {
-        events.push({
-          name: "Reiki-Infused Sound Bath",
-          time: "5:00 PM",
-          note: "A restorative sound bath session infused with reiki energy healing, out among the herd."
         });
       }
       return events;
