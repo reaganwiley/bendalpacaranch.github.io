@@ -553,7 +553,7 @@
           <h3 class="activity-name">Alpaca Pilates</h3>
           <span class="activity-price">$45</span>
         </div>
-        <p class="activity-meta">Wednesdays starting September 30, 6:00 PM</p>
+        <p class="activity-meta">9/30 &amp; 10/7, 5:30 PM</p>
         <p class="activity-desc">A mat pilates class set among the alpacas.</p>
         <a class="book-btn" href="https://buy.stripe.com/3cI3cxewr6FN5akbmMb7y00" target="_blank" rel="noopener">Book Now</a>
       </div>
@@ -632,8 +632,8 @@
     // Tai Chi runs Tuesdays 6:00 PM through the end of September 2026.
     const TAICHI_END = new Date(2026, 8, 30); // Sept 30, 2026 (month is 0-indexed)
 
-    // Pilates runs Wednesdays 6:00 PM starting September 30, 2026.
-    const PILATES_START = new Date(2026, 8, 30);
+    // Pilates runs 5:30 PM on September 30 and October 7, 2026.
+    const PILATES_DATES = [new Date(2026, 8, 30), new Date(2026, 9, 7)];
 
     // One-time Reiki-Infused Sound Bath on September 27, 2026.
     const SOUND_BATH_DATE = new Date(2026, 8, 27);
@@ -656,10 +656,10 @@
           note: "A slow, grounding tai chi session out in the pasture with the herd."
         });
       }
-      if (day === 3 && date >= PILATES_START) { // Wednesday, starting Sept 30
+      if (PILATES_DATES.some(d => isSameDate(date, d))) { // 9/30 and 10/7
         events.push({
           name: "Alpaca Pilates",
-          time: "6:00 PM",
+          time: "5:30 PM",
           note: "A mat pilates class set among the alpacas."
         });
       }
